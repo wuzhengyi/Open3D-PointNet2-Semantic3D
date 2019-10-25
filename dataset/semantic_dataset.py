@@ -4,44 +4,11 @@ import numpy as np
 import util.provider as provider
 from util.point_cloud_util import load_labels
 
-train_file_prefixes = [
-    "bildstein_station1_xyz_intensity_rgb",
-    "bildstein_station3_xyz_intensity_rgb",
-    "bildstein_station5_xyz_intensity_rgb",
-    "domfountain_station1_xyz_intensity_rgb",
-    "domfountain_station2_xyz_intensity_rgb",
-    "domfountain_station3_xyz_intensity_rgb",
-    "neugasse_station1_xyz_intensity_rgb",
-    "sg27_station1_intensity_rgb",
-    "sg27_station2_intensity_rgb",
-]
+train_file_prefixes = []
 
-validation_file_prefixes = [
-    "sg27_station4_intensity_rgb",
-    "sg27_station5_intensity_rgb",
-    "sg27_station9_intensity_rgb",
-    "sg28_station4_intensity_rgb",
-    "untermaederbrunnen_station1_xyz_intensity_rgb",
-    "untermaederbrunnen_station3_xyz_intensity_rgb",
-]
+validation_file_prefixes = []
 
-test_file_prefixes = [
-    "birdfountain_station1_xyz_intensity_rgb",
-    "castleblatten_station1_intensity_rgb",
-    "castleblatten_station5_xyz_intensity_rgb",
-    "marketplacefeldkirch_station1_intensity_rgb",
-    "marketplacefeldkirch_station4_intensity_rgb",
-    "marketplacefeldkirch_station7_intensity_rgb",
-    "sg27_station10_intensity_rgb",
-    "sg27_station3_intensity_rgb",
-    "sg27_station6_intensity_rgb",
-    "sg27_station8_intensity_rgb",
-    "sg28_station2_intensity_rgb",
-    "sg28_station5_xyz_intensity_rgb",
-    "stgallencathedral_station1_intensity_rgb",
-    "stgallencathedral_station3_intensity_rgb",
-    "stgallencathedral_station6_intensity_rgb",
-]
+test_file_prefixes = ['conferenceRoom_1']
 
 all_file_prefixes = train_file_prefixes + validation_file_prefixes + test_file_prefixes
 
@@ -66,7 +33,7 @@ class SemanticFileData:
         self.box_size_y = box_size_y
 
         # Load points
-        pcd = open3d.read_point_cloud(file_path_without_ext + ".pcd")
+        pcd = open3d.io.read_point_cloud(file_path_without_ext + ".pcd")
         self.points = np.asarray(pcd.points)
 
         # Load label. In pure test set, fill with zeros.

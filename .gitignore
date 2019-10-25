@@ -2,6 +2,8 @@
 *.o
 *.so
 .vscode
+.idea
+log*/
 .ipynb_checkpoints/
 dataset/semantic_*/
 log/
@@ -9,3 +11,4 @@ logs/
 result/
 results/
 build/
+

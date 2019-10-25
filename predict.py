@@ -9,7 +9,7 @@ import time
 import model
 from dataset.semantic_dataset import SemanticDataset
 from util.metric import ConfusionMatrix
-from tf_ops.tf_interpolate import interpolate_label_with_color
+# from tf_ops.tf_interpolate import interpolate_label_with_color
 
 
 class Predictor:
@@ -37,9 +37,9 @@ class Predictor:
             pl_sparse_labels = tf.placeholder(tf.int32, (None,))
             pl_dense_points = tf.placeholder(tf.float32, (None, 3))
             pl_knn = tf.placeholder(tf.int32, ())
-            dense_labels, dense_colors = interpolate_label_with_color(
-                pl_sparse_points, pl_sparse_labels, pl_dense_points, pl_knn
-            )
+            # dense_labels, dense_colors = interpolate_label_with_color(
+            #     pl_sparse_points, pl_sparse_labels, pl_dense_points, pl_knn
+            # )
 
         self.ops = {
             "pl_points": pl_points,
